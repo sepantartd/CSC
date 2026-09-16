@@ -1,0 +1,39 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    name: Build Cross-Platform Binaries
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go-version: ['1.21', '1.22']
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go Environment
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go-version }}
+
+      - name: Verify Go Dependencies
+        run: go mod verify
+
+      - name: Build Linux Binary (AMD64)
+        run: GOOS=linux GOARCH=amd64 go build -v -o cloud-saver-linux-amd64 main.go
+
+      - name: Build Windows Binary (AMD64)
+        run: GOOS=windows GOARCH=amd64 go build -v -o cloud-saver-windows-amd64.exe main.go
+
+      - name: Build macOS Binary (ARM64 / Apple Silicon)
+        run: GOOS=darwin GOARCH=arm64 go build -v -o cloud-saver-darwin-arm64 main.go
+
+      - name: Build Linux Binary (ARM64 / Android Termux)
+        run: GOOS=linux GOARCH=arm64 go build -v -o cloud-saver-linux-arm64 main.go
