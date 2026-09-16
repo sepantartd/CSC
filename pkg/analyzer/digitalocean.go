@@ -74,5 +74,39 @@ Specs:  fmt.Sprintf("Engine: %s, Size: %s, Nodes: %d", db.EngineSlug, db.SizeSlu
 }
 }
 
+// ۴. دریافت Load Balancerها
+if filter == "" || filter == "lb" || filter == "loadbalancer" || filter == "loadbalancers" {
+lbs, _, err := client.LoadBalancers.List(ctx, &godo.ListOptions{})
+if err != nil {
+return nil, fmt.Errorf("خطا در دریافت Load Balancerها: %w", err)
+}
+for _, lb := range lbs {
+resources = append(resources, Resource{
+ID:     lb.ID,
+Name:   lb.Name,
+Type:   "Load Balancer",
+Status: lb.Status,
+Specs:  fmt.Sprintf("IP: %s, Size: %s, Region: %s", lb.IP, lb.SizeSlug, lb.Region.Slug),
+})
+}
+}
+
+// ۵. دریافت خوشه‌های Kubernetes (DOKS)
+if filter == "" || filter == "k8s" || filter == "kubernetes" {
+k8sClusters, _, err := client.Kubernetes.List(ctx, &godo.ListOptions{})
+if err != nil {
+return nil, fmt.Errorf("خطا در دریافت خوشه‌های Kubernetes: %w", err)
+}
+for _, cluster := range k8sClusters {
+resources = append(resources, Resource{
+ID:     cluster.ID,
+Name:   cluster.Name,
+Type:   "Kubernetes",
+Status: cluster.Status.State,
+Specs:  fmt.Sprintf("Version: %s, Region: %s, NodePools: %d", cluster.VersionSlug, cluster.RegionSlug, len(cluster.NodePools)),
+})
+}
+}
+
 return resources, nil
 }

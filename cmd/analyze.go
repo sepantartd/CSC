@@ -105,6 +105,6 @@ color.Green("\n✨ تحلیل با موفقیت پایان یافت!")
 func init() {
 analyzeCmd.Flags().BoolVarP(&jsonOutput, "json", "j", false, "نمایش خروجی نهایی به صورت فرمت JSON")
 analyzeCmd.Flags().BoolVarP(&dryRun, "dry-run", "d", false, "نمایش منابع بدون ارسال درخواست به OpenAI")
-analyzeCmd.Flags().StringVarP(&resourceType, "type", "t", "", "فیلتر بر اساس نوع منبع (droplet, volume, db)")
+analyzeCmd.Flags().StringVarP(&resourceType, "type", "t", "", "فیلتر بر اساس نوع منبع (droplet, volume, db, lb, k8s)")
 rootCmd.AddCommand(analyzeCmd)
 }
