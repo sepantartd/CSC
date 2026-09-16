@@ -2,7 +2,7 @@
 BINARY_NAME=cloud-saver
 GO_FILES=main.go
 
-.PHONY: all build run test clean lint help
+.PHONY: all build run test docker-build clean lint help
 
 all: test build
 
@@ -17,10 +17,14 @@ test: ## اجرای تمام تست‌های واحد
 @echo "🧪 در حال اجرای تست‌ها..."
 go test -v ./...
 
+docker-build: ## ساخت ایمیج داکر
+@echo "🐳 در حال ساخت ایمیج داکر..."
+docker build -t cloud-saver:latest .
+
 clean: ## پاکسازی فایل‌های کامپایل شده
 @echo "🧹 در حال پاکسازی..."
 rm -f $(BINARY_NAME)
-rm -f cloud-saver-linux-* cloud-saver-windows-* cloud-saver-darwin-*
+rm -rf dist/
 
 help: ## نمایش دستورات قابل استفاده در Makefile
 @echo "دستورات قابل استفاده:"
