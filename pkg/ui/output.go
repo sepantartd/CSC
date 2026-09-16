@@ -1,6 +1,7 @@
 package ui
 
 import (
+"encoding/json"
 "fmt"
 "strings"
 
@@ -55,4 +56,14 @@ fmt.Printf("   تخمین صرفه‌جویی: %s\n", green(rec.Savings))
 fmt.Printf("   دلیل: %s\n", rec.Reason)
 fmt.Println(strings.Repeat("-", 60))
 }
+}
+
+// PrintJSONResult چاپ خروجی به صورت داده خام JSON
+func PrintJSONResult(res *ai.AnalysisResponse) error {
+jsonData, err := json.MarshalIndent(res, "", "  ")
+if err != nil {
+return fmt.Errorf("خطا در قالب‌بندی خروجی JSON: %w", err)
+}
+fmt.Println(string(jsonData))
+return nil
 }
