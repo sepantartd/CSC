@@ -1,7 +1,7 @@
 package main
 
 import (
-"github.com/myuser/cloud-saver/cmd"
+"github.com/sepantartd/cloud-saver/cmd"
 )
 
 func main() {

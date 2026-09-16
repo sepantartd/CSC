@@ -5,11 +5,10 @@ import (
 "strings"
 
 "github.com/fatih/color"
-"github.com/myuser/cloud-saver/pkg/ai"
-"github.com/myuser/cloud-saver/pkg/analyzer"
+"github.com/sepantartd/cloud-saver/pkg/ai"
+"github.com/sepantartd/cloud-saver/pkg/analyzer"
 )
 
-// PrintHeader چاپ هدر اصلی برنامه
 func PrintHeader() {
 color.Cyan("==================================================")
 color.Cyan("          ☁️  CLOUD SAVER CLI TOOL  ☁️             ")
@@ -18,7 +17,6 @@ color.Cyan("==================================================")
 fmt.Println()
 }
 
-// PrintResourcesList چاپ ساده لیست منابع دریافت شده
 func PrintResourcesList(resources []analyzer.Resource) {
 color.Yellow("📌 تعداد %d منبع ابری پیدا شد:", len(resources))
 for _, r := range resources {
@@ -27,7 +25,6 @@ fmt.Printf("  • [%s] %s (%s) - وضعیت: %s\n", r.Type, r.Name, r.Specs, r.S
 fmt.Println()
 }
 
-// PrintAnalysisResult چاپ جدول‌بندی شده و رنگی نتایج هوش مصنوعی
 func PrintAnalysisResult(res *ai.AnalysisResponse) {
 color.Green("\n📊 خلاصه تحلیل هوش مصنوعی:")
 fmt.Println(res.Summary)

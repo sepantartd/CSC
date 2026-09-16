@@ -9,25 +9,22 @@ import (
 "net/http"
 "time"
 
-"github.com/myuser/cloud-saver/pkg/analyzer"
+"github.com/sepantartd/cloud-saver/pkg/analyzer"
 )
 
-// Recommendation ساختار دریافت پاسخ پیشنهادات از AI است
 type Recommendation struct {
 ResourceName string `json:"resource_name"`
 ResourceType string `json:"resource_type"`
-Action       string `json:"action"`        // مثلا: Delete, Downsize, Keep
-Savings      string `json:"savings"`       // تخمین میزان صرفه‌جویی
-Reason       string `json:"reason"`        // دلیل پیشنهاد به فارسی
+Action       string `json:"action"`
+Savings      string `json:"savings"`
+Reason       string `json:"reason"`
 }
 
-// AnalysisResponse ساختار پاسخ کلی JSON از مدل OpenAI است
 type AnalysisResponse struct {
 Summary         string           `json:"summary"`
 Recommendations []Recommendation `json:"recommendations"`
 }
 
-// AnalyzeResources داده‌های منابع را برای OpenAI ارسال و تحلیل را دریافت می‌کند
 func AnalyzeResources(ctx context.Context, apiKey string, resources []analyzer.Resource) (*AnalysisResponse, error) {
 if len(resources) == 0 {
 return &AnalysisResponse{
@@ -35,7 +32,6 @@ Summary: "هیچ منبعی برای تحلیل یافت نشد.",
 }, nil
 }
 
-// تبدیل لیست منابع به فرمت JSON برای قرار دادن در پرامپت
 resData, err := json.MarshalIndent(resources, "", "  ")
 if err != nil {
 return nil, fmt.Errorf("خطا در قالب‌بندی داده‌های منابع: %w", err)

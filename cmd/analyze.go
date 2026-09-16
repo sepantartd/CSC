@@ -5,10 +5,10 @@ import (
 "os"
 
 "github.com/fatih/color"
-"github.com/myuser/cloud-saver/internal/config"
-"github.com/myuser/cloud-saver/pkg/ai"
-"github.com/myuser/cloud-saver/pkg/analyzer"
-"github.com/myuser/cloud-saver/pkg/ui"
+"github.com/sepantartd/cloud-saver/internal/config"
+"github.com/sepantartd/cloud-saver/pkg/ai"
+"github.com/sepantartd/cloud-saver/pkg/analyzer"
+"github.com/sepantartd/cloud-saver/pkg/ui"
 "github.com/spf13/cobra"
 )
 

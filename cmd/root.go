@@ -16,7 +16,6 @@ fmt.Println("به Cloud Saver خوش آمدید! برای شروع از دستو
 },
 }
 
-// Execute دستور ریشه را اجرا می‌کند
 func Execute() {
 if err := rootCmd.Execute(); err != nil {
 fmt.Printf("خطا در اجرای دستور: %v\n", err)
