@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Linux_|_macOS_|_Windows_|_Termux-orange?style=for-the-badge)
 
-[English](README_EN.md) | [فارسی](README_FA.md)
+[English](README_EN.md) | **فارسی**
 
 **Cloud Saver** یک ابزار خط فرمان (CLI) هوشمند و سبک نوشته شده با زبان Go است که منابع ابری شما در DigitalOcean را تحلیل کرده و با کمک مدل‌های زبانی OpenAI، پیشنهادات بهینه‌سازی هزینه (FinOps) را به صورت رنگی و خلاصه‌شده در ترمینال ارائه می‌دهد.
 
