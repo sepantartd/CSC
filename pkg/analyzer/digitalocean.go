@@ -98,11 +98,15 @@ if err != nil {
 return nil, fmt.Errorf("خطا در دریافت خوشه‌های Kubernetes: %w", err)
 }
 for _, cluster := range k8sClusters {
+statusStr := ""
+if cluster.Status != nil {
+statusStr = string(cluster.Status.State)
+}
 resources = append(resources, Resource{
 ID:     cluster.ID,
 Name:   cluster.Name,
 Type:   "Kubernetes",
-Status: cluster.Status.State,
+Status: statusStr,
 Specs:  fmt.Sprintf("Version: %s, Region: %s, NodePools: %d", cluster.VersionSlug, cluster.RegionSlug, len(cluster.NodePools)),
 })
 }
