@@ -8,7 +8,7 @@
 
 **Cloud Saver** یک ابزار خط فرمان (CLI) هوشمند و سبک نوشته شده با زبان Go است که منابع ابری شما در DigitalOcean را تحلیل کرده و با کمک مدل‌های زبانی OpenAI، پیشنهادات بهینه‌سازی هزینه (FinOps) را به صورت رنگی و خلاصه‌شده در ترمینال ارائه می‌دهد.
 
----
+
 
 ## 🚀 ویژگی‌ها
 
@@ -17,7 +17,7 @@
 - 🎨 **خروجی زیبا و تفکیک‌شده**: نمایش خروجی ترمینال با رنگ‌بندی داینامیک بر اساس سطح اهمیت اقدامات (حذف، کاهش سایز، نگهداری).
 - 📱 **سازگار با Termux**: قابل اجرا روی گوشی‌های اندرویدی بدون نیاز به دسترسی Root یا sudo.
 
----
+
 
 ## 📦 نصب و راه‌اندازی
 
@@ -25,22 +25,22 @@
 اگر Go روی سیستم شما نصب است، می‌توانید مستقیم آن را نصب کنید:
 
 ```bash
-go install [github.com/sepantartd/cloud-saver@latest](https://github.com/sepantartd/cloud-saver@latest)
+go install [github.com/sepantartd/CSC@latest](https://github.com/sepantartd/CSC@latest)
 ```
 
 ### نصب از طریق سورس
 
 ```bash
 # دریافت مخزن
-git clone [https://github.com/sepantartd/cloud-saver.git](https://github.com/sepantartd/cloud-saver.git)
-cd cloud-saver
+git clone [https://github.com/sepantartd/CSC.git](https://github.com/sepantartd/CSC.git)
+cd CSC
 
 # نصب وابستگی‌ها و کامپایل
 go mod download
-go build -o cloud-saver main.go
+go build -o CSC main.go
 ```
 
----
+
 
 ## ⚙️ تنظیمات
 
@@ -55,21 +55,21 @@ OPENAI_API_KEY=sk-proj-your_key_here
 1. **DigitalOcean Token**: وارد پنل DigitalOcean شوید -> به بخش **API** بروید -> یک **Personal Access Token** با دسترسی Read ایجاد کنید.
 2. **OpenAI API Key**: وارد **platform.openai.com** شوید -> به بخش **API Keys** بروید -> یک کلید جدید بپردازید.
 
----
+
 
 ## 💻 نحوه استفاده
 
 ### نمایش نسخه برنامه
 ```bash
-./cloud-saver version
+./CSC version
 ```
 
 ### اجرای دستور اصلی تحلیل
 ```bash
-./cloud-saver analyze
+./CSC analyze
 ```
 
----
+
 
 ## 📄 مجوز (License)
 
