@@ -8,7 +8,7 @@
 
 **Cloud Saver** is a lightweight, intelligent command-line tool (CLI) written in Go. It fetches and analyzes your DigitalOcean cloud resources and leverages OpenAI language models to provide color-coded, actionable FinOps cost optimization recommendations directly in your terminal.
 
----
+
 
 ## 🚀 Features
 
@@ -17,7 +17,7 @@
 - 🎨 **Rich Terminal UI**: Displays interactive, color-coded recommendations categorized by severity (Delete, Downsize, Keep).
 - 📱 **Termux & Mobile Friendly**: Fully functional on Android via Termux without requiring root access or `sudo`.
 
----
+
 
 ## 📦 Installation
 
@@ -25,22 +25,22 @@
 If you have Go installed, you can install the CLI directly:
 
 ```bash
-go install [github.com/sepantartd/cloud-saver@latest](https://github.com/sepantartd/cloud-saver@latest)
+go install [github.com/sepantartd/CSC@latest](https://github.com/sepantartd/CSC@latest)
 ```
 
 ### Build from Source
 
 ```bash
 # Clone the repository
-git clone [https://github.com/sepantartd/cloud-saver.git](https://github.com/sepantartd/cloud-saver.git)
+git clone [https://github.com/sepantartd/CSC.git](https://github.com/sepantartd/CSC.git)
 cd cloud-saver
 
 # Download dependencies & build binary
 go mod download
-go build -o cloud-saver main.go
+go build -o CSC main.go
 ```
 
----
+
 
 ## ⚙️ Configuration
 
@@ -55,21 +55,21 @@ OPENAI_API_KEY=sk-proj-your_key_here
 1. **DigitalOcean Token**: Log into DigitalOcean -> Go to **API** -> Generate a **Personal Access Token** with Read permissions.
 2. **OpenAI API Key**: Visit **platform.openai.com** -> Go to **API Keys** -> Create a new secret key.
 
----
+
 
 ## 💻 Usage
 
 ### Check CLI Version
 ```bash
-./cloud-saver version
+./CSC version
 ```
 
 ### Run Cost Optimization Analysis
 ```bash
-./cloud-saver analyze
+./CSC analyze
 ```
 
----
+
 
 ## 📄 License
 
